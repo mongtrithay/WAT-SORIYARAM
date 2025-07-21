@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSC - Our Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+/* Include all the animation styles from index.html */
+/* Hamburger Menu Animation Styles */
+.hamburger-container {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #374151;
+  position: absolute;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 1px;
+}
+
+.hamburger-line-1 {
+  top: 0;
+}
+
+.hamburger-line-2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-line-3 {
+  bottom: 0;
+}
+
+/* Active state - transform to X */
+.menu-active .hamburger-line-1 {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  background-color: #2563eb;
+}
+
+.menu-active .hamburger-line-2 {
+  opacity: 0;
+  transform: translateY(-50%) scale(0);
+}
+
+.menu-active .hamburger-line-3 {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+  background-color: #2563eb;
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+  position: fixed;
+  top: 73px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(10px);
+  z-index: 40;
+  padding: 2rem 1rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#mobile-menu.menu-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#mobile-menu.menu-closed {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+#mobile-menu a {
+  display: block;
+  padding: 1rem 0;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#mobile-menu a:hover {
+  color: #fbbf24;
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding-left: 1rem;
+}
+
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+/* Menu item animation */
+.menu-item-animate {
+  animation: slideInFromLeft 0.5s ease forwards;
+}
+
+@keyframes slideInFromLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation styles */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bounce-in {
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  #mobile-menu {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 fade-in">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center fade-in-left">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3lqLbCAmlaGpMUIL1jthsc4SSmocKA.png" alt="HSC Logo" class="h-10 w-10 mr-3 hover-scale">
+                    <h1 class="text-2xl font-bold text-blue-600">HSC</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 fade-in-right">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">HOME</a>
+                    <a href="our-service.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 hover-lift">OUR SERVICE</a>
+                    <a href="our-program.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">OUR PROGRAM</a>
+                    <a href="our-artist.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">OUR ARTIST</a>
+                    <a href="our-crew.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">OUR CREW</a>
+                    <a href="contact-us.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">CONTACT US</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 p-2">
+                        <!-- Hamburger lines will be added by JavaScript -->
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">HOME</a>
+                <a href="our-service.html" class="block py-2 text-blue-600 font-semibold">OUR SERVICE</a>
+                <a href="our-program.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR PROGRAM</a>
+                <a href="our-artist.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR ARTIST</a>
+                <a href="our-crew.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR CREW</a>
+                <a href="contact-us.html" class="block py-2 text-gray-700 hover:text-blue-600">CONTACT US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-blue-600 text-white py-16 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 bounce-in">OUR SERVICE</h1>
+            <p class="text-xl fade-in-up" style="animation-delay: 0.3s">Professional media production services</p>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Music Compose -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift animate-on-scroll slide-in-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-music text-3xl text-blue-600 mr-4 hover-scale"></i>
+                        <h2 class="text-2xl font-bold">MUSIC COMPOSE</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6">Professional music composition and production services for all your creative needs.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.1s"><i class="fas fa-check text-green-500 mr-2"></i> Music compose</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.2s"><i class="fas fa-check text-green-500 mr-2"></i> Lyric compose</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.3s"><i class="fas fa-check text-green-500 mr-2"></i> Music cover </li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.4s"><i class="fas fa-check text-green-500 mr-2"></i> Audio mixing & mastering</li>
+                    </ul>
+                </div>
+
+                <!-- Media Service -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-lift animate-on-scroll slide-in-right">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-video text-3xl text-blue-600 mr-4 hover-scale"></i>
+                        <h2 class="text-2xl font-bold">MEDIA SERVICE</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6">Comprehensive media production and creative services.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.6s"><i class="fas fa-check text-green-500 mr-2"></i> Production Services</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.1s"><i class="fas fa-check text-green-500 mr-2"></i> Short Film Production</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.2s"><i class="fas fa-check text-green-500 mr-2"></i> Documentary Production</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.3s"><i class="fas fa-check text-green-500 mr-2"></i> TV commercial</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.5s"><i class="fas fa-check text-green-500 mr-2"></i> Creative Design</li>
+                        <li class="flex items-center fade-in-up" style="animation-delay: 0.7s"><i class="fas fa-check text-green-500 mr-2"></i> Event & Activation Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-orange-600 py-16 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 fade-in-up text-white">Ready to Start Your Project?</h2>
+            <p class="text-xl text-gray-600 mb-8 fade-in-up text-white" style="animation-delay: 0.2s">Contact us today to discuss your media production needs</p>
+            <a href="contact-us.html" class="bg-white text-black-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:text-white transition duration-300 hover-lift bounce-in" style="animation-delay: 0.4s">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 fade-in">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="fade-in-left">
+                    <h3 class="text-xl font-bold mb-4">HSC</h3>
+                    <p class="text-gray-300">Professional media production company delivering creative solutions.</p>
+                </div>
+                <div class="fade-in-up" style="animation-delay: 0.2s">
+                    <h4 class="text-lg font-semibold mb-4">CONTACT</h4>
+                    <p class="text-gray-300">Get in touch with us for your next project</p>
+                </div>
+                <div class="fade-in-right" style="animation-delay: 0.4s">
+                    <h4 class="text-lg font-semibold mb-4">SOCIAL & PARTNERS</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61578234210841" class="text-gray-300 hover:text-white hover-scale"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="https://www.tiktok.com/@hscmedia?_t=ZT-8xwB0OydTdV&_r=1" class="text-gray-300 hover:text-white hover-scale"><i class="fab fa-tiktok text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white hover-scale"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center fade-in-up">
+                <p class="text-gray-300">&copy; 2025 HSC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
