@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSC - Contact Us</title>
+    <title>WAT-SORIYARAM - Contact Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="icon" type="image/png" href="/image/logo-Wat-Soriyaram.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white shadow-lg sticky top-0 z-50 fade-in">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3lqLbCAmlaGpMUIL1jthsc4SSmocKA.png" alt="HSC Logo" class="h-10 w-10 mr-3">
-    <h1 class="text-2xl font-bold text-blue-600">HSC</h1>
-</div>
+                <div class="flex items-center fade-in-left">
+                    <img src="/image/logo-Wat-Soriyaram.png" alt="HSC Logo" class="h-10 w-6 mr-3 hover-scale">
+                    <h1 class="text-2xl font-bold text-blue-600">WAT-SORIYARAM</h1>
+                </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">HOME</a>
-                    <a href="our-service.html" class="text-gray-700 hover:text-blue-600 transition duration-300">OUR SERVICE</a>
-                    <a href="our-program.html" class="text-gray-700 hover:text-blue-600 transition duration-300">OUR PROGRAM</a>
-                    <a href="our-artist.html" class="text-gray-700 hover:text-blue-600 transition duration-300">OUR ARTIST</a>
-                    <a href="our-crew.html" class="text-gray-700 hover:text-blue-600 transition duration-300">OUR CREW</a>
-                    <a href="contact-us.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">CONTACT US</a>
+                <div class="hidden md:flex space-x-8 fade-in-right">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">HOME</a>
+                    <a href="video.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">VIDEO</a>
+                    <a href="image.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">IMAGE</a>
+                     <a href="training.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">TRAINING COURSE</a>
+                    <a href="contact-us.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 hover-lift">CONTACT US</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 p-2">
+                        <!-- Hamburger lines will be added by JavaScript -->
                     </button>
                 </div>
             </div>
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">HOME</a>
-                <a href="our-service.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR SERVICE</a>
-                <a href="our-program.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR PROGRAM</a>
-                <a href="our-artist.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR ARTIST</a>
-                <a href="our-crew.html" class="block py-2 text-gray-700 hover:text-blue-600">OUR CREW</a>
-                <a href="contact-us.html" class="block py-2 text-blue-600 font-semibold">CONTACT US</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">HOME</a>
+                    <a href="video.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">VIDEO</a>
+                    <a href="image.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">IMAGE</a>
+                      <a href="training.html" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-lift">TRAINING COURSE</a>
+                    <a href="contact-us.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 hover-lift">CONTACT US</a>
             </div>
         </div>
     </nav>
@@ -62,29 +61,36 @@
                 <!-- Contact Form -->
                 <div class="bg-white rounded-lg shadow-lg p-8">
                     <h2 class="text-2xl font-bold mb-6">Send us a Message</h2>
-                    <form class="space-y-6">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value="795c5f15-b344-4c6d-aba8-f04275337338">
+                        <input type="hidden" name="subject" value="New Contact Form Submission from HSC Website">
+                        <input type="hidden" name="from_name" value="HSC Contact Form">
+                        <input type="hidden" name="redirect" value="https://your-website.com/thank-you.html">
+                        <!-- Honeypot Field to Prevent Spam -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                                <input type="text" id="firstName" name="firstName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                             <div>
-                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
                             <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                         <div>
-                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
-                            <select id="service" name="service" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                <option value="">Select a service</option>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interested In *</label>
+                            <select id="service" name="service" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="" disabled selected>Select a service</option>
                                 <option value="music">Music Composition</option>
                                 <option value="short-film">Short Film</option>
                                 <option value="documentary">Documentary</option>
@@ -94,9 +100,10 @@
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
                         </div>
+                        <div id="form-message" class="hidden text-center text-sm"></div>
                         <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300 font-semibold">
                             Send Message
                         </button>
@@ -105,7 +112,6 @@
 
                 <!-- Contact Information -->
                 <div class="space-y-8">
-                    <!-- Contact Details -->
                     <div class="bg-white rounded-lg shadow-lg p-8">
                         <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
                         <div class="space-y-4">
@@ -113,21 +119,21 @@
                                 <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-4"></i>
                                 <div>
                                     <h3 class="font-semibold">Address</h3>
-                                    <a href="https://maps.app.goo.gl/qSLtiXg7NjBNNHxF9?g_st=ipc" class="text-gray-600">56 AZ street, 230 toul kork, Phnom Phenh</a>
+                                    <a href="https://maps.app.goo.gl/qSLtiXg7NjBNNHxF9?g_st=ipc" class="text-gray-600">56 AZ street, 230 toul kork, Phnom Penh</a>
                                 </div>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-phone text-blue-600 text-xl mr-4"></i>
                                 <div>
                                     <h3 class="font-semibold">Phone</h3>
-                                    <p class="text-gray-600">+855 89 444 430 </p>
+                                    <p class="text-gray-600"></p>
                                 </div>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-envelope text-blue-600 text-xl mr-4"></i>
                                 <div>
                                     <h3 class="font-semibold">Email</h3>
-                                    <p class="text-gray-600">sophanureak55@gmail.com</p>
+                                    <p class="text-gray-600"></p>
                                 </div>
                             </div>
                             <div class="flex items-center">
@@ -147,10 +153,10 @@
                             <div>
                                 <h3 class="font-semibold mb-3">Follow Us</h3>
                                 <div class="flex space-x-2">
-                                    <a href="https://www.facebook.com/profile.php?id=61578234210841" class="w-12 h-12 bg-white rounded-full flex items-center justify-center transition duration-300">
+                                    <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center transition duration-300">
                                         <i class="fab fa-facebook text-4xl"></i>
                                     </a>
-                                    <a href="https://www.tiktok.com/@hscmedia?_t=ZT-8xwB0OydTdV&_r=1" class="w-12 h-12 bg-white rounded-full flex items-center justify-center transition duration-300">
+                                    <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center transition duration-300">
                                         <i class="fab fa-tiktok text-4xl"></i>
                                     </a>
                                     <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center transition duration-300">
@@ -170,54 +176,54 @@
     </section>
 
     <!-- Map Section -->
-<section class="py-16 bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
-        <div class="rounded-lg overflow-hidden shadow-lg">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0977!2d90.4125!3d23.8103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ4JzM3LjEiTiA5MMKwMjQnNDUuMCJF!5e0!3m2!1sen!2sbd!4v1234567890!5m2!1sen!2sbd"
-                width="100%" 
-                height="400" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
+            <div class="rounded-lg overflow-hidden shadow-lg">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7671389908036!2d104.89717461475785!3d11.570589391797894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDM0JzE0LjEiTiAxMDTCsDUzJzQ5LjQiRQ!5e0!3m2!1sen!2skh!4v1696435200000!5m2!1sen!2skh"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="https://maps.app.goo.gl/qSLtiXg7NjBNNHxF9?g_st=ipc" 
+                   target="_blank" 
+                   class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    Open in Google Maps
+                </a>
+            </div>
         </div>
-        <div class="mt-6 text-center">
-            <a href="https://maps.app.goo.gl/qSLtiXg7NjBNNHxF9?g_st=ipc" 
-               target="_blank" 
-               class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                <i class="fas fa-external-link-alt mr-2"></i>
-                Open in Google Maps
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-12 fade-in">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">HSC</h3>
+                <div class="fade-in-left">
+                    <h3 class="text-xl font-bold mb-4">WAT-SORIYARAM</h3>
                     <p class="text-gray-300">Professional media production company delivering creative solutions.</p>
                 </div>
-                <div>
+                <div class="fade-in-up" style="animation-delay: 0.2s">
                     <h4 class="text-lg font-semibold mb-4">CONTACT</h4>
                     <p class="text-gray-300">Get in touch with us for your next project</p>
                 </div>
-                <div>
+                <div class="fade-in-right" style="animation-delay: 0.4s">
                     <h4 class="text-lg font-semibold mb-4">SOCIAL</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=61578234210841" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="https://www.tiktok.com/@hscmedia?_t=ZT-8xwB0OydTdV&_r=1" class="text-gray-300 hover:text-white"><i class="fab fa-tiktok text-xl"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white hover-scale"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white hover-scale"><i class="fab fa-tiktok text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white hover-scale"><i class="fab fa-youtube text-xl"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-300">&copy; 2025 HSC. All rights reserved.</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center fade-in-up">
+                <p class="text-gray-300">&copy; 2025 WAT-SORIYARAM. All rights reserved.</p>
             </div>
         </div>
     </footer>

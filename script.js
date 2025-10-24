@@ -288,3 +288,48 @@ document.addEventListener("DOMContentLoaded", () => {
     revealObserver.observe(el)
   })
 })
+
+
+//Contact sends to email code
+document.addEventListener('DOMContentLoaded', function () {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(contactForm);
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        formMessage.classList.remove('hidden');
+        if (result.success) {
+            formMessage.classList.remove('text-red-600');
+            formMessage.classList.add('text-green-600');
+            formMessage.textContent = 'Your message has been sent successfully!';
+            contactForm.reset(); // Reset the form
+        } else {
+            formMessage.classList.remove('text-green-600');
+            formMessage.classList.add('text-red-600');
+            formMessage.textContent = 'There was an error sending your message. Please try again.';
+        }
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.classList.add('hidden');
+        }, 5000);
+    });
+});
